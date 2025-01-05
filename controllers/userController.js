@@ -134,7 +134,7 @@ const getAllStatistics = async (req, res) => {
 
     // If no informations found, return a 404
     if (informations.length === 0) {
-      return res.status(404).json({
+      return res.status(200).json({
         success: false,
         message: "No informations found!!!",
         data: []

@@ -19,7 +19,7 @@ const getAllInformations = async (req, res) => {
     // const informations = await InformationModel.find().populate('userId').sort({ createdAt: -1 }); // Fetch all users
     if (informations.length === 0) {
       // If no users are found, send a 404 response with a custom message
-      return res.status(404).json({
+      return res.status(200).json({
         success: false,
         message: "No informations found!!!",
         data: []

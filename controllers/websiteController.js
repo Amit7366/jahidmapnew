@@ -16,7 +16,7 @@ const getAllWebsites = async (req, res) => {
 
     if (websites.length === 0) {
       // If no users are found, send a 404 response with a custom message
-      return res.status(404).json({
+      return res.status(200).json({
         success: false,
         message: "No website found!",
         data: []
