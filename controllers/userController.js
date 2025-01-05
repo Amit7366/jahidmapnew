@@ -10,7 +10,7 @@ const getAllUsers = async (req, res) => {
     const users = await UserModel.find({ role: 'user' }); // Fetch all users
     if (users.length === 0) {
       // If no users are found, send a 404 response with a custom message
-      return res.status(404).json({
+      return res.status(200).json({
         success: false,
         message: "No user found!",
         data: []
