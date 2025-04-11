@@ -133,6 +133,47 @@ const updateInformation = async (req, res) => {
     });
   }
 };
+const updateCashpin = async (req, res) => {
+  const { id } = req.params; // Extract the subdomain ID from params
+  const { cashpin } = req.body; // Extract the type (desktop or mobile) from the request body
+  console.log(id, cashpin);
+  try {
+    // Build the update object based on the type
+    const update = {
+      cashpin: cashpin
+    };
+
+    // Find and update the document
+    const result = await InformationModel.findOneAndUpdate(
+      { temp: id }, // Filter by subdomain
+      update, // Increment the desktop or mobile counter
+      { new: true, upsert: true } // Return the updated document, create if not found
+    );
+
+    // If no document is updated or created, handle it
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: "Subdomain not found!",
+      });
+    }
+
+    // Send success response with the updated document
+    return res.status(200).json({
+      success: true,
+      message: "Cashpin updated successfully!",
+      data: result,
+    });
+  } catch (error) {
+    console.error('Cashpin updating click:', error);
+
+    // Handle server errors
+    return res.status(500).json({
+      success: false,
+      message: "Something went wrong!",
+    });
+  }
+};
 
 const deleteInformation = async (req, res) => {
   const { id } = req.params; // Extract the object ID from params
@@ -170,5 +211,6 @@ module.exports = {
   getAllInformations,
   createInformation,
   updateInformation,
+  updateCashpin,
   deleteInformation
 };

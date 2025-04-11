@@ -17,6 +17,10 @@ const informationSchema = new Schema({
         type: String,
 
     },
+    cashpin: {
+        type: String,
+
+    },
     ip: {
         type: String,
 
