@@ -87,34 +87,6 @@ const registerUser = async (req, res) => {
                         console.error('Error creating website:', error.message);
                     }
                 })
-
-
-
-                // selectedItems.map(async (item) => {
-                //     let objid = user._id.toString();
-                //     let websiteName = item;
-                //     let path = `/location`;
-                //     let subdomain = 'dsfdsfdsf';
-
-                //     console.log(objid, websiteName, path, subdomain)
-
-                //     if(objid && websiteName && path && subdomain){
-                //         let website = await Website.create({
-                //             websiteName,
-                //             path,
-                //             subdomain,
-                //             objid,
-                //             mobileClick: 0,
-                //             deskstopClick: 0,
-                //         });
-                //     }
-
-
-
-
-
-                // })
-
             }
 
 

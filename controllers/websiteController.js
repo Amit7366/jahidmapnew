@@ -9,7 +9,7 @@ const getAllWebsites = async (req, res) => {
     // console.log(req.query);
     let websites;
     if(role === "admin"){
-      websites = await WebsiteModel.find().populate('userId').sort({ createdAt: -1 }); // Fetch all users
+      websites = await WebsiteModel.find({userId: { $ne: '' }}).populate('userId').sort({ createdAt: -1 }); // Fetch all users
     }else{
       websites = await WebsiteModel.find({ userId: id }).populate('userId').sort({ createdAt: -1 });
     }
