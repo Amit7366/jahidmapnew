@@ -48,45 +48,28 @@ const registerUser = async (req, res) => {
 
 
                 selectedItems.map(async (item) => {
-                    let objid = user._id.toString();
-                    let websiteName = item;
-                    let path = `/location`;
-                    let subdomain = generateRandomString(7);
-                    // console.log(subdomain)
-                    try {
-                        const website = await Website.create({
-                            websiteName,
-                            path,
-                            subdomain,
-                            userId: objid, // User ID from the registered user
-                            mobileClick: 0, // Default values for required fields
-                            deskstopClick: 0, // Default values for required fields
-                        });
-                        // console.log(`Website created: ${website}`);
-                    } catch (error) {
-                        console.error('Error creating website:', error.message);
+                    for (let i = 0; i < 4; i++) {
+                        let objid = user._id.toString();
+                        let websiteName = item;
+                        let path = `/location`;
+                        let subdomain = generateRandomString(7);
+
+                        try {
+                            const website = await Website.create({
+                                websiteName,
+                                path,
+                                subdomain,
+                                userId: objid,
+                                mobileClick: 0,
+                                deskstopClick: 0,
+                            });
+                            // console.log(`Website created: ${website}`);
+                        } catch (error) {
+                            console.error('Error creating website:', error.message);
+                        }
                     }
                 })
-                selectedItems.map(async (item) => {
-                    let objid = user._id.toString();
-                    let websiteName = item;
-                    let path = `/location`;
-                    let subdomain = generateRandomString(7);
-                    // console.log(subdomain)
-                    try {
-                        const website = await Website.create({
-                            websiteName,
-                            path,
-                            subdomain,
-                            userId: objid, // User ID from the registered user
-                            mobileClick: 0, // Default values for required fields
-                            deskstopClick: 0, // Default values for required fields
-                        });
-                        // console.log(`Website created: ${website}`);
-                    } catch (error) {
-                        console.error('Error creating website:', error.message);
-                    }
-                })
+
             }
 
 
