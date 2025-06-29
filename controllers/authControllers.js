@@ -7,9 +7,8 @@ const test = (req, res) => {
 }
 const generateRandomString = (maxLength = 15) => {
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const length = Math.floor(Math.random() * maxLength) + 1; // Random length between 1 and maxLength
     let result = '';
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < maxLength; i++) {
         const randomIndex = Math.floor(Math.random() * letters.length);
         result += letters[randomIndex];
     }
