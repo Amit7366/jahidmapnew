@@ -94,18 +94,16 @@ const createInformation = async (req, res) => {
 
 const updateInformation = async (req, res) => {
   const { id } = req.params; // Extract the subdomain ID from params
-  const { address } = req.body; // Extract the type (desktop or mobile) from the request body
+  const updatedInformation = req.body; // Extract the type (desktop or mobile) from the request body
   console.log(id, address);
   try {
     // Build the update object based on the type
-    const update = {
-      address: address
-    };
+    ;
 
     // Find and update the document
     const result = await InformationModel.findOneAndUpdate(
       { temp: id }, // Filter by subdomain
-      update, // Increment the desktop or mobile counter
+      updatedInformation, // Increment the desktop or mobile counter
       { new: true, upsert: true } // Return the updated document, create if not found
     );
 
