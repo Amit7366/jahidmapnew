@@ -95,7 +95,7 @@ const createInformation = async (req, res) => {
 const updateInformation = async (req, res) => {
   const { id } = req.params; // Extract the subdomain ID from params
   const updatedInformation = req.body; // Extract the type (desktop or mobile) from the request body
-  console.log(id, address);
+  // console.log(id, address);
   try {
     // Build the update object based on the type
     
