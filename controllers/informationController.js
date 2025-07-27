@@ -98,7 +98,7 @@ const updateInformation = async (req, res) => {
   console.log(id, address);
   try {
     // Build the update object based on the type
-    ;
+    
 
     // Find and update the document
     const result = await InformationModel.findOneAndUpdate(
