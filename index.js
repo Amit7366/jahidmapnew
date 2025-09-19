@@ -54,7 +54,7 @@ const io = new Server(server, {
             'http://localhost:5173',
             'http://localhost:3000',
             'https://jahidmapnew.web.app',
-            'https://mylivelocationzs.web.app',
+            'https://mylivelocationsz.web.app',
             'https://mylivelocationz.live',
             'https://maqslocationliv.site',
             'https://getmylivaddresz.fit',
